@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>nl.paultegelaar</groupId>
-  <artifactId>Talend74-Base</artifactId>
+  <artifactId>talend74-base</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>Talend74-Base</name>
+  <name>talend74-base</name>
   <description>Talend 7.4 base docker image</description>
   <scm>
 		<connection>scm:git:https://github.com/rjptegelaar/Talend74Base.git</connection>

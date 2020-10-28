@@ -1,6 +1,9 @@
 #Centos as base
 FROM centos:7
 
+#Open ports
+EXPOSE 8040
+
 #Update yum repo
 RUN yum -y update
 

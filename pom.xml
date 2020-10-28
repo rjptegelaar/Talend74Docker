@@ -28,7 +28,7 @@
 				</executions>
 				<configuration>
 					<repository>docker.io/paultegelaar/talend74base</repository>
-					<tag>${project.version}</tag>
+					<tag>1</tag>
 				</configuration>
 			</plugin>
 		</plugins>

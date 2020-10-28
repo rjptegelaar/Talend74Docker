@@ -14,18 +14,14 @@ RUN yum -y clean all
 ENV JAVA_HOME /usr/lib/jvm/java-openjdk
 RUN export JAVA_HOME
 
-#Download Talend Open Studio for ESB
-RUN curl -sSo /opt/TOS_ESB-20201015_1726-V7.4.1M3.zip https://www.dropbox.com/s/q18d45dkzf6ycmm/TOS_ESB-20201015_1726-V7.4.1M3.zip?dl=0> /dev/null
-#COPY TOS_ESB-20201015_1726-V7.4.1M3.zip /opt/
+#Put 
+COPY TOS_ESB-20201015_1726-V7.4.1M3.zip /opt/
 
 #Unzip Talend runtime
 RUN unzip /opt/TOS_ESB-20201015_1726-V7.4.1M3.zip -d /opt/TOS_ESB-20201015_1726-V7.4.1M3
 
 #Delete Talend runtime zip
 RUN rm -rf /opt/TOS_ESB-20201015_1726-V7.4.1M3.zip
-
-#Delete Talend studio
-RUN rm -rf /opt/TOS_ESB-20201015_1726-V7.4.1M3/Studio
 
 #Correct rights
 RUN chmod o+rx -R /opt/TOS_ESB-20201015_1726-V7.4.1M3/Runtime_ESBSE/container/bin/

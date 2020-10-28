@@ -6,6 +6,12 @@
   <packaging>pom</packaging>
   <name>Talend74-Base</name>
   <description>Talend 7.4 base docker image</description>
+  <scm>
+		<connection>scm:git:https://github.com/rjptegelaar/Talend74Base.git</connection>
+		<developerConnection>scm:git:git@github.com:rjptegelaar/Talend74Base.git</developerConnection>
+		<url>https://github.com/rjptegelaar/Talend74Base.git</url>
+		<tag>HEAD</tag>
+	</scm>
   <build>
 		<plugins>
 			<plugin>

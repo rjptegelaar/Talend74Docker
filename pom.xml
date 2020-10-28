@@ -28,7 +28,7 @@
 				</executions>
 				<configuration>
 					<repository>docker.io/paultegelaar/talend74base</repository>
-					<tag>741M3</tag>
+					<tag>741</tag>
 				</configuration>
 			</plugin>
 		</plugins>

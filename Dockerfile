@@ -1,15 +1,22 @@
 #Centos as base
 FROM centos:7
 
-#Add pwgen
+#Update yum repo
+RUN yum -y update
+
+#Add pwgen, java and unzip
 RUN yum -y install epel-release pwgen java-11-openjdk-headless unzip
+
+#Clean yum repo after update
+RUN yum -y clean all 
 
 #Set java home
 ENV JAVA_HOME /usr/lib/jvm/java-openjdk
 RUN export JAVA_HOME
 
 #Download Talend Open Studio for ESB
-RUN curl -sSo /opt/TOS_ESB-20200219_1130-V7.3.1.zip https://download-mirror2.talend.com/esb/release/V7.4.1M3/TOS_ESB-20201015_1726-V7.4.1M3.zip> /dev/null
+RUN curl -sSo /opt/TOS_ESB-20201015_1726-V7.4.1M3.zip https://www.dropbox.com/s/q18d45dkzf6ycmm/TOS_ESB-20201015_1726-V7.4.1M3.zip?dl=0> /dev/null
+#COPY TOS_ESB-20201015_1726-V7.4.1M3.zip /opt/
 
 #Unzip Talend runtime
 RUN unzip /opt/TOS_ESB-20201015_1726-V7.4.1M3.zip -d /opt/TOS_ESB-20201015_1726-V7.4.1M3

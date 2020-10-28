@@ -33,5 +33,11 @@
 			</plugin>
 		</plugins>
 	</build>
-  
+  <distributionManagement>
+		<snapshotRepository>
+			<id>pte-snapshots</id>
+			<name>internal snapshots</name>
+			<url>${snapshots-url}</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>

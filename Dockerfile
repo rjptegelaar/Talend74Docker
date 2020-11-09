@@ -1,8 +1,8 @@
 #Centos as base
-FROM centos:7
+FROM centos:8
 
 #Open ports
-EXPOSE 8040 9001
+EXPOSE 8040 8101 9001
 
 #Update yum repo
 RUN yum -y update
@@ -31,14 +31,13 @@ RUN unzip /opt/TOS_ESB-20201015_1726-V7.4.1M3.zip -d /opt/TOS_ESB-20201015_1726-
 ENV TALEND_RUNTIME_HOME /opt/TOS_ESB-20201015_1726-V7.4.1M3
 RUN export TALEND_RUNTIME_HOME
 
+#Set Container home
+ENV TALEND_CONTAINER_HOME $TALEND_RUNTIME_HOME/Runtime_ESBSE/container
+RUN export TALEND_CONTAINER_HOME
+
 #Delete Talend runtime zip
 RUN rm -rf /opt/TOS_ESB-20201015_1726-V7.4.1M3.zip
 
 #Correct rights
-RUN chmod o+rx -R $TALEND_RUNTIME_HOME/Runtime_ESBSE/container/bin/
-RUN chmod +rx -R $TALEND_RUNTIME_HOME/Runtime_ESBSE/container/bin/
-
-#Set new passwords
-RUN sed -ir "s/^[#]*\s*tadmin=.*/tadmin=`pwgen -Bs1 36`,_g_:admingroup,sl_admin/"  $TALEND_RUNTIME_HOME/Runtime_ESBSE/container/etc/users.properties
-RUN sed -ir "s/^[#]*\s*karaf =.*/karaf = `pwgen -Bs1 36`,_g_:admingroup/"  $TALEND_RUNTIME_HOME/Runtime_ESBSE/container/etc/users.properties
-RUN sed -ir "s/^[#]*\s*tesb=.*/tesb=`pwgen -Bs1 36`,_g_:admingroup,sl_maintain/"  $TALEND_RUNTIME_HOME/Runtime_ESBSE/container/etc/users.properties
+RUN chmod o+rx -R $TALEND_CONTAINER_HOME/bin/
+RUN chmod +rx -R $TALEND_CONTAINER_HOME/bin/

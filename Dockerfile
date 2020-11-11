@@ -10,8 +10,7 @@ RUN yum -y update
 #Add pwgen, java and unzip
 RUN yum -y install java-11-openjdk-devel
 RUN yum -y install unzip
-RUN yum -y install epel-release
-RUN yum -y install pwgen 
+
 
 
 #Clean yum repo after update

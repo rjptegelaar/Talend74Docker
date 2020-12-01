@@ -1,9 +1,6 @@
 #Centos as base
 FROM centos:8
 
-#Open ports
-EXPOSE 8040 8101 9001
-
 #Update yum repo
 RUN yum -y update
 

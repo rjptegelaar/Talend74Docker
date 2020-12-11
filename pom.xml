@@ -1,43 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>nl.paultegelaar</groupId>
-  <artifactId>talend-base</artifactId>
-  <version>0.0.3-SNAPSHOT</version>
+  <groupId>nl.paultegelaar.talend.docker</groupId>
+  <artifactId>talend-docker</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>talend74base</name>
-  <description>Talend 7.4 base docker image</description>
-  <scm>
-		<connection>scm:git:https://github.com/rjptegelaar/Talend74Base.git</connection>
-		<developerConnection>scm:git:git@github.com:rjptegelaar/Talend74Base.git</developerConnection>
-		<url>https://github.com/rjptegelaar/Talend74Base.git</url>
-		<tag>HEAD</tag>
-	</scm>
-  <build>
-		<plugins>
-			<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>dockerfile-maven-plugin</artifactId>
-				<version>1.4.3</version>
-				<executions>
-					<execution>
-						<id>default</id>
-						<goals>
-							<goal>build</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<repository>docker.io/paultegelaar/talend74base</repository>					
-					<tag>20201015_1726-V7.4.1M3</tag>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-  <distributionManagement>
-		<snapshotRepository>
-			<id>pte-snapshots</id>
-			<name>internal snapshots</name>
-			<url>${snapshots-url}</url>
-		</snapshotRepository>
-	</distributionManagement>
+  <name>talend-docker</name>
+  <description>Talend docker project</description>
+  <modules>
+  	<module>talend-base</module>
+  	<module>talend-infra-sqlserver</module>
+  	<module>talend-runtime-connected</module>
+  </modules>
 </project>

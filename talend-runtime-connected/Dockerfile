@@ -28,12 +28,21 @@ RUN export SAM_HOST
 ENV CONTAINER_PORTS_SCRIPT configureC3.sh
 RUN export CONTAINER_PORTS_SCRIPT
 
+ENV CONTAINER_COMMAND_PORT 8104
+RUN export CONTAINER_COMMAND_PORT
+
+#Set start delay
+ENV START_DELAY 5
+RUN export START_DELAY
+
+
 #Copy scripts
 RUN mkdir /opt/scripts
 COPY scripts/configureLocator.sh $TALEND_CONTAINER_HOME/scripts
 COPY scripts/configureSAM.sh $TALEND_CONTAINER_HOME/scripts
 COPY scripts/addUsers.sh $TALEND_CONTAINER_HOME/scripts
 COPY scripts/configureAndStartTalend.sh /opt/scripts
+COPY scripts/wait-centos.sh /opt/scripts
 COPY scripts/startAndSwitchPorts.sh /opt/scripts
 COPY scripts/setenv $TALEND_CONTAINER_HOME/bin
 
@@ -47,9 +56,3 @@ RUN chmod +rx -R /opt/scripts
 
 #Copy configs to etc
 COPY configs/users.properties $TALEND_CONTAINER_HOME/etc
-
-#Switch ports
-RUN /opt/scripts/startAndSwitchPorts.sh
-
-#Start Talend Runtime
-ENTRYPOINT ["bash","/opt/scripts/configureAndStartTalend.sh"]

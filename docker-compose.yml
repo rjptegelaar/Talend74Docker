@@ -49,6 +49,8 @@ services:
       - 8042:8042
       - 9003:9003
       - 8103:8103
+    depends_on:
+      - "infracontainer"
     environment:
       - LOCATOR_HOST=infracontainer
       - EXTERNAL_ADDRESS=serviceruntime01

@@ -10,5 +10,8 @@
   	<module>talend-base</module>
   	<module>talend-infra-sqlserver</module>
   	<module>talend-runtime-connected</module>
+  	<module>talend-process-runtime</module>
+  	<module>talend-service-runtime</module>
+  	<module>talend-api-runtime</module>
   </modules>
 </project>

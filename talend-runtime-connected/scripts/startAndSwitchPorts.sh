@@ -1,4 +1,5 @@
 #!/bin/sh
+sleep 30
 echo "Start as daemon."
 cd $TALEND_CONTAINER_HOME/bin/ 
 ./trun daemon &

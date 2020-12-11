@@ -11,56 +11,21 @@ services:
       - 9001:9001
       - 2181:2181
     environment:
-      - SQL_SERVER_HOST=localhost
+      - SQL_SERVER_HOST=10.20.101.84
       - SQL_SERVER_PORT=1433
       - SQL_SERVER_DBNAME=talendsam
       - SQL_SERVER_USER=talendsam
       - SQL_SERVER_PASSWORD=talendsam1234
       - TALEND_SAM_USER_PASSWORD=HeyHoLetsGO!
       - TALEND_ADMIN_USER_PASSWORD=WeAreGoingToIbiza
-      
-  processruntime01:
-    image: paultegelaar/talend74runtime:20201015_1726-V7.4.1M3
-    depends_on:
-      - infracontainer
-    networks:
-      - talend_network
-    restart: unless-stopped
-    ports:
-      - 8041:8041
-      - 9002:9002
-      - 8102:8102
-    environment:
-      - LOCATOR_HOST=infracontainer
-      - EXTERNAL_ADDRESS=processruntime01
-      - SAM_HOST=infracontainer
-      - TALEND_SAM_USER_PASSWORD=HeyHoLetsGO!
-      - TALEND_ADMIN_USER_PASSWORD=WeAreGoingToIbiza
-      - CONTAINER_PORTS_SCRIPT=configureC1.sh
+    healthcheck:
+       test: ["CMD", "curl", "-f", "http://localhost:8040/services"]
+       interval: 30s
+       timeout: 10s
+       retries: 5
       
   serviceruntime01:
-    image: paultegelaar/talend74runtime:20201015_1726-V7.4.1M3
-    depends_on:
-      - infracontainer
-    networks:
-      - talend_network
-    restart: unless-stopped
-    ports:
-      - 8042:8042
-      - 9003:9003
-      - 8103:8103
-    depends_on:
-      - "infracontainer"
-    environment:
-      - LOCATOR_HOST=infracontainer
-      - EXTERNAL_ADDRESS=serviceruntime01
-      - SAM_HOST=infracontainer
-      - TALEND_SAM_USER_PASSWORD=HeyHoLetsGO!
-      - TALEND_ADMIN_USER_PASSWORD=WeAreGoingToIbiza
-      - CONTAINER_PORTS_SCRIPT=configureC2.sh
-      
-  apiruntime01:
-    image: paultegelaar/talend74runtime:20201015_1726-V7.4.1M3
+    image: paultegelaar/talend74service:20201015_1726-V7.4.1M3
     depends_on:
       - infracontainer
     networks:
@@ -72,12 +37,65 @@ services:
       - 8104:8104
     environment:
       - LOCATOR_HOST=infracontainer
-      - EXTERNAL_ADDRESS=sapiruntime01
+      - EXTERNAL_ADDRESS=serviceruntime01
       - SAM_HOST=infracontainer
       - TALEND_SAM_USER_PASSWORD=HeyHoLetsGO!
       - TALEND_ADMIN_USER_PASSWORD=WeAreGoingToIbiza
-      - CONTAINER_PORTS_SCRIPT=configureC3.sh
-     
+      - START_DELAY=15
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:8043/services"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+      
+  processruntime01:
+    image: paultegelaar/talend74process:20201015_1726-V7.4.1M3
+    depends_on:
+      - serviceruntime01
+    networks:
+      - talend_network
+    restart: unless-stopped
+    ports:
+      - 8042:8042
+      - 9003:9003
+      - 8103:8103
+    environment:
+      - LOCATOR_HOST=infracontainer
+      - EXTERNAL_ADDRESS=processruntime01
+      - SAM_HOST=infracontainer
+      - TALEND_SAM_USER_PASSWORD=HeyHoLetsGO!
+      - TALEND_ADMIN_USER_PASSWORD=WeAreGoingToIbiza
+      - START_DELAY=30
+    healthcheck:
+       test: ["CMD", "curl", "-f", "http://localhost:8042/services"]
+       interval: 30s
+       timeout: 10s
+       retries: 5    
+       
+  apiruntime01:
+    image: paultegelaar/talend74api:20201015_1726-V7.4.1M3
+    depends_on:
+      - processruntime01
+    networks:
+      - talend_network
+    restart: unless-stopped
+    ports:
+      - 8041:8041
+      - 9002:9002
+      - 8102:8102
+    environment:
+      - LOCATOR_HOST=infracontainer
+      - EXTERNAL_ADDRESS=apiruntime01
+      - SAM_HOST=infracontainer
+      - TALEND_SAM_USER_PASSWORD=HeyHoLetsGO!
+      - TALEND_ADMIN_USER_PASSWORD=WeAreGoingToIbiza
+      - START_DELAY=30
+    healthcheck:
+       test: ["CMD", "curl", "-f", "http://localhost:8041/services"]
+       interval: 30s
+       timeout: 10s
+       retries: 5
+         
 networks:
   talend_network:
     driver: bridge

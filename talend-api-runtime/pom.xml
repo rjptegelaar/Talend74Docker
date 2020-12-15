@@ -15,7 +15,7 @@
 		<dependency>
 			<groupId>nl.paultegelaar.talend.docker</groupId>
 			<artifactId>talend-runtime-connected</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
@@ -36,7 +36,7 @@
 				</executions>
 				<configuration>
 					<repository>docker.io/paultegelaar/talend74api</repository>
-					<tag>20201015_1726-V7.4.1M3</tag>
+					<tag>20201110_1014-V7.4.1M4</tag>
 				</configuration>
 			</plugin>
 

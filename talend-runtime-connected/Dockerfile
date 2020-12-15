@@ -1,5 +1,5 @@
 #Talend 7.4 base
-FROM paultegelaar/talend74base:20201015_1726-V7.4.1M3
+FROM paultegelaar/talend74base:20201110_1014-V7.4.1M4
 
 #Install SSH
 RUN yum -y install epel-release

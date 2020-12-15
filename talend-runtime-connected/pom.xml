@@ -2,8 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>nl.paultegelaar.talend.docker</groupId>
-    <artifactId>talend74docker</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <artifactId>talend-docker</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>talend-runtime-connected</artifactId>
   <packaging>pom</packaging>
@@ -13,7 +13,7 @@
   <dependency>
 		<groupId>nl.paultegelaar.talend.docker</groupId>
 			<artifactId>talend-base</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
   </dependencies>
@@ -34,7 +34,7 @@
 				</executions>
 				<configuration>
 					<repository>docker.io/paultegelaar/talend74runtime</repository>
-					<tag>20201015_1726-V7.4.1M3</tag>
+					<tag>20201110_1014-V7.4.1M4</tag>
 				</configuration>
 			</plugin>
 			

@@ -3,7 +3,7 @@
   <parent>
     <groupId>nl.paultegelaar.talend.docker</groupId>
     <artifactId>talend-docker</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>talend-service-runtime</artifactId>
   <packaging>pom</packaging>
@@ -34,7 +34,7 @@
 				</executions>
 				<configuration>
 					<repository>docker.io/paultegelaar/talend74service</repository>
-					<tag>20201015_1726-V7.4.1M3</tag>
+					<tag>20201110_1014-V7.4.1M4</tag>
 				</configuration>
 			</plugin>
 			

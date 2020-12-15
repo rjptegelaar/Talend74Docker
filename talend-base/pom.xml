@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>nl.paultegelaar.talend.docker</groupId>
-    <artifactId>talend74docker</artifactId>
+    <artifactId>talend-docker</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>talend-base</artifactId>
@@ -25,7 +25,7 @@
 				</executions>
 				<configuration>
 					<repository>docker.io/paultegelaar/talend74base</repository>					
-					<tag>20201015_1726-V7.4.1M3</tag>
+					<tag>20201110_1014-V7.4.1M4</tag>
 				</configuration>
 			</plugin>
 		</plugins>

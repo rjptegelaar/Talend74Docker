@@ -1,5 +1,5 @@
 <assembly>
-	<id>liquid</id>
+	<id>talend-infra</id>
 	<formats>
 		<format>zip</format>
 	</formats>

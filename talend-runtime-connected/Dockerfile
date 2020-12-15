@@ -43,6 +43,7 @@ COPY scripts/configureSAM.sh $TALEND_CONTAINER_HOME/scripts
 COPY scripts/addUsers.sh $TALEND_CONTAINER_HOME/scripts
 COPY scripts/configureAndStartTalend.sh /opt/scripts
 COPY scripts/wait-centos.sh /opt/scripts
+COPY scripts/copyConfigsAndKars.sh /opt/scripts
 COPY scripts/startAndSwitchPorts.sh /opt/scripts
 COPY scripts/setenv $TALEND_CONTAINER_HOME/bin
 

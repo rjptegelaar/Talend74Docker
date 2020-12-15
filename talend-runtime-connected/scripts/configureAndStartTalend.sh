@@ -20,6 +20,9 @@ echo "Stopping runtime"
 ./trun stop
 sleep 30
 echo "Stopped."
+echo "Deploying Talend logic."
+/opt/scripts/copyConfigsAndKars.sh
+echo "Deployed Talend logic."
 echo "Randomize passwords"
 sed -i "s/^[#]*\s*tadmin=.*/tadmin=`pwgen -Bs1 36`,_g_:admingroup,sl_admin,ssh/" $TALEND_CONTAINER_HOME/etc/users.properties
 sed -i "s/^[#]*\s*karaf =.*/karaf = `pwgen -Bs1 36`,_g_:admingroup/" $TALEND_CONTAINER_HOME/etc/users.properties

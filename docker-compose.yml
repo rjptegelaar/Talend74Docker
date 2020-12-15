@@ -17,12 +17,7 @@ services:
       - SQL_SERVER_USER=talendsam
       - SQL_SERVER_PASSWORD=talendsam1234
       - TALEND_SAM_USER_PASSWORD=HeyHoLetsGO!
-      - TALEND_ADMIN_USER_PASSWORD=WeAreGoingToIbiza
-    healthcheck:
-       test: ["CMD", "curl", "-f", "http://localhost:8040/services"]
-       interval: 30s
-       timeout: 10s
-       retries: 5
+      - TALEND_ADMIN_USER_PASSWORD=WeAreGoingToIbiza    
       
   serviceruntime01:
     image: paultegelaar/talend74service:20201015_1726-V7.4.1M3
@@ -42,11 +37,6 @@ services:
       - TALEND_SAM_USER_PASSWORD=HeyHoLetsGO!
       - TALEND_ADMIN_USER_PASSWORD=WeAreGoingToIbiza
       - START_DELAY=15
-    healthcheck:
-        test: ["CMD", "curl", "-f", "http://localhost:8043/services"]
-        interval: 30s
-        timeout: 10s
-        retries: 5
       
   processruntime01:
     image: paultegelaar/talend74process:20201015_1726-V7.4.1M3
@@ -66,11 +56,6 @@ services:
       - TALEND_SAM_USER_PASSWORD=HeyHoLetsGO!
       - TALEND_ADMIN_USER_PASSWORD=WeAreGoingToIbiza
       - START_DELAY=30
-    healthcheck:
-       test: ["CMD", "curl", "-f", "http://localhost:8042/services"]
-       interval: 30s
-       timeout: 10s
-       retries: 5    
        
   apiruntime01:
     image: paultegelaar/talend74api:20201015_1726-V7.4.1M3
@@ -90,12 +75,7 @@ services:
       - TALEND_SAM_USER_PASSWORD=HeyHoLetsGO!
       - TALEND_ADMIN_USER_PASSWORD=WeAreGoingToIbiza
       - START_DELAY=30
-    healthcheck:
-       test: ["CMD", "curl", "-f", "http://localhost:8041/services"]
-       interval: 30s
-       timeout: 10s
-       retries: 5
-         
+               
 networks:
   talend_network:
     driver: bridge

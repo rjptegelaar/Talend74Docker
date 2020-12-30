@@ -20,13 +20,23 @@ set /p filename="Enter filename: "
 set /p issnapshot="Snapshot release (y/n): "
 
 
+echo check delimiter
+
+if not x%filename:_=%==x%filename% set delimiter=_	
+
+if not x%filename:-=%==x%filename% set delimiter=-
+
+echo set delimiter to %delimiter%
+
 rem get version and type
 set versionAndExtension=%filename:*_=%
 echo %versionAndExtension%
 
-for /f "tokens=1 delims=_" %%a in ("%filename%") do (
+for /f "tokens=1 delims=%delimiter%" %%a in ("%filename%") do (
   set artifactId=%%a
 )
+
+
 
 rem parse version and type
 for /f "tokens=1-3 delims=." %%a in ("%versionAndExtension%") do (
@@ -35,7 +45,7 @@ for /f "tokens=1-3 delims=." %%a in ("%versionAndExtension%") do (
         set "fileType=%%c"
 )
 
-echo "Parsed filename: [%major%] [%minor%] [%fileType%]"
+echo "Parsed version and type to, major, minor and type: [%major%] [%minor%] [%fileType%]"
 
 if %issnapshot%==y (
 	set releasetype=-SNAPSHOT

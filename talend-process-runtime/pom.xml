@@ -13,7 +13,7 @@
 		<dependency>
 			<groupId>nl.paultegelaar.talend.docker</groupId>
 			<artifactId>talend-runtime-connected</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
+			<version>0.0.1-SNAPSHOT</version>
 			<scope>provided</scope>
 			<type>pom</type>
 		</dependency>

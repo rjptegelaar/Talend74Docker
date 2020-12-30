@@ -15,6 +15,7 @@
 			<artifactId>talend-runtime-connected</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>provided</scope>
+			<type>pom</type>
 		</dependency>
 	</dependencies>
   <build>

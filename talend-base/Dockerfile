@@ -1,17 +1,16 @@
 #Centos as base
-FROM centos:8
+FROM opensuse/leap:15.1
 
 #Update yum repo
-RUN yum -y update
+#RUN yum -y update
+RUN zypper --non-interactive refresh
 
-#Add pwgen, java and unzip
-RUN yum -y install java-11-openjdk-devel
-RUN yum -y install unzip
-
-
+#Add java and unzip
+RUN zypper --non-interactive install java-11-openjdk-devel
+RUN zypper --non-interactive install unzip
 
 #Clean yum repo after update
-RUN yum -y clean all 
+#RUN yum -y clean all 
 
 #Set java home
 ENV JAVA_HOME /usr/lib/jvm/java-openjdk

@@ -9,7 +9,7 @@ RUN zypper --non-interactive install java-11-openjdk-devel
 RUN zypper --non-interactive install unzip
 
 #Set java home
-ENV JAVA_HOME /usr/lib/jvm/java-openjdk
+ENV JAVA_HOME /usr/lib64/jvm/java-11-openjdk-11/
 RUN export JAVA_HOME
 
 #Put 

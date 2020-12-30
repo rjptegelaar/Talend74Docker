@@ -29,16 +29,9 @@ RUN export TALEND_ADMIN_USER_PASSWORD
 
 
 #Install SSH
-#RUN zypper --non-interactive install epel-release
 RUN zypper --non-interactive install pwgen
 RUN zypper --non-interactive install openssh
 RUN zypper --non-interactive install sshpass
-
-
-#RUN yum -y install epel-release
-#RUN yum -y install pwgen 
-#RUN yum -y install openssh-clients
-#RUN yum -y install sshpass
 
 #Copy deps
 COPY target/talend-deps.zip /opt

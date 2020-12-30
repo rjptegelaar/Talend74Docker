@@ -10,7 +10,7 @@
 	<artifactId>talend-infra-sqlserver</artifactId>
 	<name>talend74infra</name>
 	<description>Talend 7.4 Infra Container for SQL Server Database</description>
-	 <packaging>pom</packaging>
+	<packaging>pom</packaging>
 	<build>
 		<plugins>
 			<plugin>
@@ -62,10 +62,11 @@
 
 
 		<dependency>
-		<groupId>nl.paultegelaar.talend.docker</groupId>
+			<groupId>nl.paultegelaar.talend.docker</groupId>
 			<artifactId>talend-base</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>provided</scope>
+			<type>pom</type>
 		</dependency>
 	</dependencies>
 

@@ -3,6 +3,6 @@ echo "Add user."
 
 useradd jenkinsadmin -s /bin/bash -m -g jenkins -G jenkins
 
-echo "jenkinsadmin:password" | chpasswd
+echo "jenkinsadmin:$JENKINS_ADMIN_USER_PASSWORD" | chpasswd
 
 echo "Done adding user"

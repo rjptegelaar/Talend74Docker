@@ -1,6 +1,10 @@
 #Centos as base
 FROM jenkins/jenkins:lts
 
+#Set Jenkins custom password
+ENV JENKINS_ADMIN_USER_PASSWORD replaceme
+RUN export JENKINS_ADMIN_USER_PASSWORD
+
 #Install unzip
 USER root
 RUN apt update

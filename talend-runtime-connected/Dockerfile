@@ -44,6 +44,11 @@ RUN mkdir /opt/scripts
 COPY scripts/configureLocator.sh $TALEND_CONTAINER_HOME/scripts
 COPY scripts/configureSAM.sh $TALEND_CONTAINER_HOME/scripts
 COPY scripts/addUsers.sh $TALEND_CONTAINER_HOME/scripts
+COPY scripts/configureC4.sh $TALEND_CONTAINER_HOME/scripts
+COPY scripts/configureC5.sh $TALEND_CONTAINER_HOME/scripts
+COPY scripts/configureC6.sh $TALEND_CONTAINER_HOME/scripts
+COPY scripts/configureC7.sh $TALEND_CONTAINER_HOME/scripts
+COPY scripts/configureC8.sh $TALEND_CONTAINER_HOME/scripts
 COPY scripts/configureAndStartTalend.sh /opt/scripts
 COPY scripts/wait-centos.sh /opt/scripts
 COPY scripts/copyConfigsAndKars.sh /opt/scripts

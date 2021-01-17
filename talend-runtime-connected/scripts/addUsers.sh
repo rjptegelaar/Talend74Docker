@@ -25,10 +25,12 @@ jaas:realm-manage --realm karaf --module org.apache.karaf.jaas.modules.propertie
 
 echo "Add users"
 jaas:user-add talendadmin $talend.admin.user.password
+jaas:user-add talendesb $talend.esb.user.password
 jaas:user-add samuser $talend.sam.user.password
 
 echo "Add users to groups"
 jaas:group-add samuser viewergroup
+jaas:group-add talendesb viewergroup
 jaas:group-add talendadmin admingroup
 jaas:role-add talendadmin ssh
 

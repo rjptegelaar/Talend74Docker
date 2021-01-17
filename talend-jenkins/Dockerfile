@@ -16,7 +16,7 @@ EXPOSE 8080 50000
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 
 #Copy configs to etc
-COPY src/main/configs/plugins.txt /usr/share/jenkins/ref/plugins.txt
+COPY configs/plugins.txt /usr/share/jenkins/ref/plugins.txt
 
 USER root
 #Copy scripts
@@ -25,12 +25,12 @@ RUN mkdir /opt/security
 RUN mkdir /opt/jobsstaging
 RUN mkdir /opt/jobs
 
-COPY src/main/scripts/createUser.sh /opt/scripts
-COPY src/main/scripts/installGroovy.sh /opt/scripts
-COPY src/main/scripts/start.sh /opt/scripts
-COPY src/main/scripts/setupSecurity.groovy /usr/share/jenkins/ref/init.groovy.d/setupSecurity.groovy
+COPY scripts/createUser.sh /opt/scripts
+COPY scripts/installGroovy.sh /opt/scripts
+COPY scripts/start.sh /opt/scripts
+COPY scripts/setupSecurity.groovy /usr/share/jenkins/ref/init.groovy.d/setupSecurity.groovy
 COPY target/jobs.zip /opt/jobsstaging
-COPY src/main/configs/defaultconfig.xml /opt/jobsstaging
+COPY configs/defaultconfig.xml /opt/jobsstaging
 
 #Correct rights
 RUN chmod o+rx -R /opt/scripts

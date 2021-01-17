@@ -9,6 +9,21 @@
   <name>talend-jenkins</name>
   <description>Jenkins instance used to trigger Talend Jobs</description>
   
+  
+  	<dependencies>
+		<dependency>
+			<groupId>nl.paultegelaar.docker</groupId>
+			<artifactId>TestJob</artifactId>
+			<version>0.1-SNAPSHOT</version>
+			<type>zip</type>
+		</dependency>
+		<dependency>
+			<groupId>nl.paultegelaar.docker</groupId>
+			<artifactId>SecondJob</artifactId>
+			<version>0.1-SNAPSHOT</version>
+			<type>zip</type>
+		</dependency>
+	</dependencies>
   <build>
 		<plugins>
 			<plugin>
@@ -35,6 +50,7 @@
 				<configuration>
 					<repository>docker.io/pteprogaia/talend74jenkins</repository>
 					<tag>${project.version}</tag>
+					<contextDirectory>src/main/docker</contextDirectory>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -52,7 +68,7 @@
 				<configuration>
 					<descriptor>src/main/assembly/jenkins.xml</descriptor>
 					<finalName>jobs</finalName>
-					<appendAssemblyId>false</appendAssemblyId>
+					<appendAssemblyId>false</appendAssemblyId>					
 				</configuration>
 			</plugin>
 

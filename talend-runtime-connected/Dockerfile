@@ -50,7 +50,6 @@ COPY scripts/configureC6.sh $TALEND_CONTAINER_HOME/scripts
 COPY scripts/configureC7.sh $TALEND_CONTAINER_HOME/scripts
 COPY scripts/configureC8.sh $TALEND_CONTAINER_HOME/scripts
 COPY scripts/configureAndStartTalend.sh /opt/scripts
-COPY scripts/wait-centos.sh /opt/scripts
 COPY scripts/copyConfigsAndKars.sh /opt/scripts
 COPY scripts/startAndSwitchPorts.sh /opt/scripts
 COPY scripts/setenv $TALEND_CONTAINER_HOME/bin

@@ -37,6 +37,14 @@
 					<repository>docker.io/paultegelaar/talend74runtime</repository>
 					<tag>20201110_1014-V7.4.1M4</tag>
 				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>javax.activation</groupId>
+						<artifactId>javax.activation-api</artifactId>
+						<version>1.2.0</version>
+						<scope>compile</scope>
+					</dependency>
+				</dependencies>
 			</plugin>
 			
 

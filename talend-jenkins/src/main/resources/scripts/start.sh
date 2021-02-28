@@ -14,6 +14,9 @@ while read -r line; do cp /opt/jobsstaging/defaultconfig.xml "$JENKINS_HOME/jobs
 echo "Unzip job files."
 while read -r line; do unzip "/opt/jobsstaging/extract/jobs/$line" -d "/opt/jobs/${line%.zip}" ; done < /opt/jobsstaging/joblist.txt 
 
+echo "Generate job configs based on files."
+while read -r line; do /opt/scripts/parseConfig.sh /opt/config/${line%%-*}.cfg ; done < /opt/jobsstaging/joblist.txt
+
 echo "Modify configs"
 while read -r line; do sed -i "s/\${jobpath}/\/opt\/jobs\/${line%.zip}\/${line%%-*}\/${line%%-*}_run.sh/" "$JENKINS_HOME/jobs/${line%.zip}/config.xml" ; done < /opt/jobsstaging/joblist.txt
 

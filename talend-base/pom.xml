@@ -25,7 +25,7 @@
 				</executions>
 				<configuration>
 					<repository>docker.io/paultegelaar/talend74base</repository>					
-					<tag>20201110_1014-V7.4.1M4</tag>
+					<tag>20210107_1111-V7.4.1M6</tag>
 				</configuration>
 				<dependencies>
 					<dependency>

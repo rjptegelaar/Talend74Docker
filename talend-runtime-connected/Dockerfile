@@ -1,11 +1,19 @@
 #Talend 7.4 base
-FROM paultegelaar/talend74base:20201110_1014-V7.4.1M4
+FROM paultegelaar/talend74base:20210107_1111-V7.4.1M6
 
 #Install SSH
 RUN zypper --non-interactive install pwgen
 RUN zypper --non-interactive install openssh
 RUN zypper --non-interactive install sshpass
 
+#Copy deps
+COPY target/talend-deps.zip /opt
+
+#Unzip Talend deps
+RUN unzip /opt/talend-deps.zip -d /opt
+
+#Move libs to deploy
+RUN mv /opt/talend-deps/lib/*.jar $TALEND_CONTAINER_HOME/lib/boot
 
 #Set Talend custom passwords
 ENV TALEND_SAM_USER_PASSWORD replaceme
@@ -33,6 +41,12 @@ RUN export CONTAINER_PORTS_SCRIPT
 
 ENV CONTAINER_COMMAND_PORT 8104
 RUN export CONTAINER_COMMAND_PORT
+
+ENV TALEND_ESB_HTTP_PORT 8043
+RUN export TALEND_ESB_HTTP_PORT
+
+ENV TALEND_ESB_HTTPS_PORT 9004
+RUN export TALEND_ESB_HTTPS_PORT
 
 #Set start delay
 ENV START_DELAY 5

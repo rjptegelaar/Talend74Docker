@@ -40,7 +40,7 @@
 # export JAVA_MAX_MEM # Maximum memory for the JVM
 # export JAVA_PERM_MEM # Minimum perm memory for the JVM
 # export JAVA_MAX_PERM_MEM # Maximum perm memory for the JVM
-export EXTRA_JAVA_OPTS="-Dexternal.address=$EXTERNAL_ADDRESS -Dlocator.host=$LOCATOR_HOST -Dsam.host=$SAM_HOST -Dtalend.sam.user.password=$TALEND_SAM_USER_PASSWORD -Dtalend.admin.user.password=$TALEND_ADMIN_USER_PASSWORD  -Dtalend.esb.user.password=$TALEND_ESB_USER_PASSWORD"
+export EXTRA_JAVA_OPTS="-Dexternal.address=$EXTERNAL_ADDRESS -Dlocator.host=$LOCATOR_HOST -Dsam.host=$SAM_HOST -Dtalend.sam.user.password=$TALEND_SAM_USER_PASSWORD -Dtalend.admin.user.password=$TALEND_ADMIN_USER_PASSWORD  -Dtalend.esb.user.password=$TALEND_ESB_USER_PASSWORD -Dtalend.esb.http.port=$TALEND_ESB_HTTP_PORT  -Dtalend.esb.https.port=$TALEND_ESB_HTTPS_PORT"
 # export KARAF_HOME # Karaf home folder
 # export KARAF_DATA # Karaf data folder
 # export KARAF_BASE # Karaf base folder

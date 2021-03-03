@@ -1,0 +1,22 @@
+<assembly>
+	<id>talend-prod</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<dependencySets>
+		<dependencySet>
+			<useProjectArtifact>false</useProjectArtifact>
+			<outputDirectory>/kars</outputDirectory>
+			<unpack>false</unpack>
+		</dependencySet>		
+	</dependencySets>
+	<fileSets>
+	<fileSet>		
+			<directory>config/prod</directory>
+			<outputDirectory>/config</outputDirectory>
+			<includes>
+				<include>*.cfg</include>
+			</includes>
+		</fileSet>
+		</fileSets>
+</assembly>

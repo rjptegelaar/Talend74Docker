@@ -1,5 +1,5 @@
 #Talend 7.4 base
-FROM paultegelaar/talend74base:20201110_1014-V7.4.1M4
+FROM paultegelaar/talend74base:20210107_1111-V7.4.1M6
 
 #Open ports
 EXPOSE 8040 9001 2181

@@ -7,14 +7,17 @@ cd $TALEND_CONTAINER_HOME/bin/
 echo "Done starting as deamon, wait a half of a minute for start to complete."
 sleep 30
 echo "Done starting, configure and stop."
-sshpass -p "tadmin" ssh -o StrictHostKeyChecking=no tadmin@localhost -p $CONTAINER_COMMAND_PORT "source scripts/addUsers.sh"
+sshpass -p "tadmin" ssh -o StrictHostKeyChecking=no tadmin@localhost -p $CONTAINER_COMMAND_PORT "source scripts/addUsers.sh" &
+sleep 10
 echo "Done adding users."
 echo "Configure SAM connection."
-sshpass -p $TALEND_ADMIN_USER_PASSWORD ssh -o StrictHostKeyChecking=no talendadmin@localhost -p $CONTAINER_COMMAND_PORT "source scripts/configureSAM.sh"
+sshpass -p $TALEND_ADMIN_USER_PASSWORD ssh -o StrictHostKeyChecking=no talendadmin@localhost -p $CONTAINER_COMMAND_PORT "source scripts/configureSAM.sh" &
+sleep 10
 echo "Configured SAM connection."
 sleep 10
 echo "Configure Locator connection."
-sshpass -p $TALEND_ADMIN_USER_PASSWORD ssh -o StrictHostKeyChecking=no talendadmin@localhost -p $CONTAINER_COMMAND_PORT "source scripts/configureLocator.sh"
+sshpass -p $TALEND_ADMIN_USER_PASSWORD ssh -o StrictHostKeyChecking=no talendadmin@localhost -p $CONTAINER_COMMAND_PORT "source scripts/configureLocator.sh" &
+sleep 10
 echo "Configured Locator connection."
 echo "Stopping runtime"
 ./trun stop

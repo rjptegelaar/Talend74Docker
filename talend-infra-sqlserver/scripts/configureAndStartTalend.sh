@@ -5,8 +5,12 @@ cd $TALEND_CONTAINER_HOME/bin/
 echo "Done starting as deamon, wait a half of a minute for start to complete."
 sleep 30
 echo "Done starting, configure and stop."
-sshpass -p "tadmin" ssh -o StrictHostKeyChecking=no tadmin@localhost -p 8101 "source scripts/addUsers.sh"
-sshpass -p $TALEND_ADMIN_USER_PASSWORD ssh -o StrictHostKeyChecking=no talendadmin@localhost -p 8101 "source scripts/configureInfrastructureServices.sh"
+sshpass -p "tadmin" ssh -o StrictHostKeyChecking=no tadmin@localhost -p 8101 "source scripts/addUsers.sh" &
+sleep 10
+echo "Done adding users, configure infrastructure"
+sshpass -p $TALEND_ADMIN_USER_PASSWORD ssh -o StrictHostKeyChecking=no talendadmin@localhost -p 8101 "source scripts/configureInfrastructureServices.sh" &
+sleep 20
+echo "Done starting infra."
 ./trun stop
 sleep 30
 echo "Stopped."

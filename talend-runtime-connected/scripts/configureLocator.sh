@@ -25,10 +25,10 @@ echo "Change locator configuration (Pid: org.talend.esb.locator.cfg)"
 config:edit --force org.talend.esb.locator
 echo "locator.endpoints=$locator.host:2181"
 config:property-set locator.endpoints $locator.host:2181
-echo "endpoint.http.prefix http://$external.address:8043/services"
-config:property-set endpoint.http.prefix https://$external.address:8043/services
-echo "endpoint.https.prefix=https://$external.address:9004/services"
-config:property-set endpoint.https.prefix https://$external.address:9004/services
+echo "endpoint.http.prefix http://$external.address:$talend.esb.http.port/services"
+config:property-set endpoint.http.prefix https://$external.address:$talend.esb.http.port/services
+echo "endpoint.https.prefix=https://$external.address:$talend.esb.https.port/services"
+config:property-set endpoint.https.prefix https://$external.address:$talend.esb.https.port/services
 config:update
 
 

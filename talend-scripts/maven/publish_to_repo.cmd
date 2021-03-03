@@ -29,7 +29,13 @@ if not x%filename:-=%==x%filename% set delimiter=-
 echo set delimiter to %delimiter%
 
 rem get version and type
-set versionAndExtension=%filename:*_=%
+if not x%filename:_=%==x%filename% (
+	set versionAndExtension=%filename:*_=%
+)
+if not x%filename:-=%==x%filename% (
+	set versionAndExtension=%filename:*-=%
+)
+
 echo %versionAndExtension%
 
 for /f "tokens=1 delims=%delimiter%" %%a in ("%filename%") do (

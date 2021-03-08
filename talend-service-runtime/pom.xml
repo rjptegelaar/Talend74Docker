@@ -22,7 +22,13 @@
 		<dependency>
 			<groupId>nl.progaia.talend.74.services</groupId>
 			<artifactId>ValidationService</artifactId>
-			<version>ValidationService-0.2</version>
+			<version>0.3</version>
+			<type>kar</type>
+		</dependency>
+		<dependency>
+			<groupId>nl.progaia.talend.74.services</groupId>
+			<artifactId>LookupService</artifactId>
+			<version>0.4</version>
 			<type>kar</type>
 		</dependency>
 	</dependencies>

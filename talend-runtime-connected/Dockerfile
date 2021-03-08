@@ -52,7 +52,6 @@ RUN export TALEND_ESB_HTTPS_PORT
 ENV START_DELAY 5
 RUN export START_DELAY
 
-
 #Copy scripts
 RUN mkdir /opt/scripts
 COPY scripts/configureLocator.sh $TALEND_CONTAINER_HOME/scripts

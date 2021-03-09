@@ -57,7 +57,7 @@ RUN chown -R jenkins:jenkins /opt/jobs
 RUN chown -R jenkins:jenkins /opt/config
 RUN chown -R jenkins:jenkins /opt/scripts
 
-#Add user
+#Add user rights
 RUN chmod o+r /etc/shadow
 RUN chmod o+r /sbin/unix_chkpwd
 RUN chmod +r /etc/shadow

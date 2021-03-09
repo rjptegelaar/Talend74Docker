@@ -9,7 +9,7 @@ sshpass -p "tadmin" ssh -o StrictHostKeyChecking=no tadmin@localhost -p 8101 "so
 sleep 10
 echo "Done adding users, configure infrastructure"
 sshpass -p $TALEND_ADMIN_USER_PASSWORD ssh -o StrictHostKeyChecking=no talendadmin@localhost -p 8101 "source scripts/configureInfrastructureServices.sh" &
-sleep 20
+sleep 30
 echo "Done starting infra."
 ./trun stop
 sleep 30

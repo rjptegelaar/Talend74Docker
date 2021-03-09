@@ -9,11 +9,15 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers/>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>${jobperiodic}</spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>${jobpath}</command>
+      <command>${jobpath} ${jobcontext} ${jobparams}</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>

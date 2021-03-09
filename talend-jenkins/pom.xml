@@ -11,27 +11,15 @@
 	<name>talend74jenkins</name>
 	<packaging>pom</packaging>
 	<description>Jenkins instance used to trigger Talend Jobs</description>
-	<version>0.1.1-SNAPSHOT</version>
+	<version>0.3.1-SNAPSHOT</version>
 
 	<dependencies>
 		<dependency>
-			<groupId>nl.paultegelaar.docker</groupId>
-			<artifactId>TestJob</artifactId>
-			<version>0.1-SNAPSHOT</version>
+			<groupId>nl.progaia.talend.74.jobs</groupId>
+			<artifactId>CleanSamSqlServer</artifactId>
+			<version>1.2</version>
 			<type>zip</type>
 		</dependency>
-		<dependency>
-			<groupId>nl.paultegelaar.docker</groupId>
-			<artifactId>SecondJob</artifactId>
-			<version>0.1-SNAPSHOT</version>
-			<type>zip</type>
-		</dependency>
-		<dependency>
-  <groupId>nl.progaia.test</groupId>
-  <artifactId>test123</artifactId>
-  <version>0.2-SNAPSHOT</version>
-  <type>kar</type>
-</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -79,7 +67,7 @@
 					<appendAssemblyId>false</appendAssemblyId>
 				</configuration>
 			</plugin>
-			
+
 		</plugins>
 	</build>
 </project>

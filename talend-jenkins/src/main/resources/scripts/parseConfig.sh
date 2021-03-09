@@ -27,7 +27,7 @@ do
    			echo "--context=$propvalue" > "$1.context"
    		;;
    		cron) 
-   			echo "$propvalue" > "$1.cron" 
+   			echo "$propvalue" > "$1.periodic" 
    		;;
    		*)   		
    			echo -n " --context_param $propkey=$propvalue" >> "$1.params"
@@ -35,6 +35,5 @@ do
 	esac
   	
 done < "$1"
-
 
 echo "Done parsing $1"

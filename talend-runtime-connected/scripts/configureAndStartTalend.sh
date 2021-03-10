@@ -1,6 +1,11 @@
 #!/bin/sh
+
 echo "Delay start for nr of seconds: $START_DELAY"
 sleep $START_DELAY
+
+if [ ! -f "/opt/configured" ]; then
+
+echo "Configuring Container."
 echo "Start as daemon."
 cd $TALEND_CONTAINER_HOME/bin/ 
 ./trun daemon &
@@ -30,5 +35,11 @@ echo "Randomize passwords"
 sed -i "s/^[#]*\s*tadmin=.*/tadmin=`pwgen -Bs1 36`,_g_:admingroup,sl_admin,ssh/" $TALEND_CONTAINER_HOME/etc/users.properties
 sed -i "s/^[#]*\s*karaf =.*/karaf = `pwgen -Bs1 36`,_g_:admingroup/" $TALEND_CONTAINER_HOME/etc/users.properties
 sed -i "s/^[#]*\s*tesb=.*/tesb=`pwgen -Bs1 36`,_g_:admingroup,sl_maintain/" $TALEND_CONTAINER_HOME/etc/users.properties
+
+touch /opt/configured
+else 
+    echo "Container already configured"
+fi
+
 echo "Start runtime."
 ./trun run
